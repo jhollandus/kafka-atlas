@@ -1,0 +1,130 @@
+{
+  "enumDefs": [],
+  "structDefs": [],
+  "classificationDefs": [],
+  "entityDefs": [
+    {
+      "name": "avro_type",
+      "superTypes": [
+        "DataSet"
+      ],
+      "typeVersion": "1.0",
+      "attributeDefs": []
+    },
+    {
+      "name": "avro_schema",
+      "superTypes": [
+        "avro_type"
+      ],
+      "typeVersion": "1.0",
+      "attributeDefs": [
+        {
+          "name": "type",
+          "typeName": "string",
+          "cardinality": "SINGLE",
+          "isOptional": false,
+          "isIndexable": false,
+          "isUnique": false
+        },
+        {
+          "name": "namespace",
+          "typeName": "string",
+          "cardinality": "SINGLE",
+          "isOptional": true,
+          "isUnique": false
+        },
+        {
+          "name": "doc",
+          "typeName": "string",
+          "cardinality": "SINGLE",
+          "isOptional": true,
+          "isUnique": false
+        },
+        {
+          "name": "aliases",
+          "typeName": "array<string>",
+          "cardinality": "SINGLE",
+          "isOptional": true,
+          "isUnique": false
+        },
+        {
+          "name": "fields",
+          "typeName": "array<avro_field>",
+          "cardinality": "SINGLE",
+          "isOptional": true,
+          "isUnique": false
+        },
+        {
+          "name": "symbols",
+          "typeName": "array<string>",
+          "cardinality": "SINGLE",
+          "isOptional": true,
+          "isUnique": false
+        }
+      ]
+    },
+    {
+      "name": "avro_field",
+      "superTypes": [
+        "Referenceable",
+        "Asset"
+      ],
+      "typeVersion": "1.0",
+      "attributeDefs": [
+        {
+          "name": "type",
+          "typeName": "array<avro_type>",
+          "cardinality": "SINGLE",
+          "isOptional": false,
+          "isIndexable": false,
+          "isUnique": false
+        },
+        {
+          "name": "doc",
+          "typeName": "string",
+          "cardinality": "SINGLE",
+          "isOptional": true,
+          "isUnique": false
+        },
+        {
+          "name": "default",
+          "typeName": "string",
+          "cardinality": "SINGLE",
+          "isOptional": true,
+          "isUnique": false
+        }
+      ]
+    },
+    {
+      "name": "avro_array",
+      "superTypes": [
+        "avro_type"
+      ],
+      "typeVersion": "1.0",
+      "attributeDefs": [
+        {
+          "name": "type",
+          "typeName": "string",
+          "cardinality": "SINGLE",
+          "isOptional": false,
+          "isUnique": false
+        },
+        {
+          "name": "items",
+          "typeName": "array<avro_type>",
+          "cardinality": "SINGLE",
+          "isOptional": false,
+          "isUnique": false
+        }
+      ]
+    },
+    {
+      "name": "avro_primitive",
+      "superTypes": [
+        "avro_type"
+      ],
+      "typeVersion": "1.0",
+      "attributeDefs": []
+    }
+  ]
+}

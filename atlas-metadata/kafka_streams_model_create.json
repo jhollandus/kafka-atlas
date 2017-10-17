@@ -1,0 +1,175 @@
+{
+  "enumDefs": [ ],
+  "structDefs": [ ],
+  "classificationDefs": [ ],
+  "entityDefs": [
+    {
+      "name": "kafka_streams_process",
+      "description": "A kafka stream process",
+      "superTypes": [
+        "Process"
+      ],
+      "typeVersion": "1.0",
+      "attributeDefs": [
+        {
+          "name": "version",
+          "typeName": "string",
+          "cardinality": "SINGLE",
+          "isIndexable": false,
+          "isOptional": false,
+          "isUnique": false,
+          "description": "The version of the deployable artifact that defines the stream"
+        },
+        {
+          "name": "sourceArtifactName",
+          "typeName": "string",
+          "cardinality": "SINGLE",
+          "isIndexable": true,
+          "isOptional": false,
+          "isUnique": false,
+          "description": "The name of the deployable artifact that contains the stream"
+        },
+        {
+          "name": "applicationId",
+          "typeName": "string",
+          "cardinality": "SINGLE",
+          "isIndexable": true,
+          "isOptional": false,
+          "isUnique": false,
+          "description": "The application.id that the stream is configured with"
+        }
+      ]
+    },
+    {
+      "name": "kafka_connect_process",
+      "description": "A kafka connector process",
+      "superTypes": [
+        "Process"
+      ],
+      "typeVersion": "1.0",
+      "attributeDefs": [
+        {
+          "name": "cluster",
+          "typeName": "kafka_cluster",
+          "cardinality": "SINGLE",
+          "isOptional": false,
+          "isIndexable": true,
+          "isUnique": false,
+          "description": "The kafka cluster where the topic is defined"
+        }
+      ]
+    },
+    {
+      "name": "database",
+      "superTypes": [
+        "Referenceable",
+        "Asset"
+      ],
+      "typeVersion": "1.0",
+      "attributeDefs": [
+      ]
+    },
+    {
+      "name": "table",
+      "superTypes": [
+        "DataSet"
+      ],
+      "typeVersion": "1.0",
+      "attributeDefs": [
+        {
+          "name": "database",
+          "typeName": "database",
+          "cardinality": "SINGLE",
+          "isOptional": false,
+          "isIndexable": true,
+          "isUnique": false,
+          "description": "The database where the table resides."
+        }
+      ]
+    },
+    {
+      "name": "kafka_topic",
+      "description": "A topic that is defined within Kafka",
+      "superTypes": [
+        "DataSet"
+      ],
+      "typeVersion": "1.0",
+      "attributeDefs": [
+        {
+          "name": "cluster",
+          "typeName": "kafka_cluster",
+          "cardinality": "SINGLE",
+          "isOptional": false,
+          "isIndexable": true,
+          "isUnique": false,
+          "description": "The kafka cluster where the topic is defined"
+        },
+        {
+          "name": "topicName",
+          "typeName": "string",
+          "cardinality": "SINGLE",
+          "isOptional": false,
+          "isIndexable": true,
+          "isUnique": false,
+          "description": "The name given to the topic and is used by producers and consumers"
+        },
+        {
+          "name": "createTime",
+          "typeName": "date",
+          "cardinality": "SINGLE",
+          "isOptional": true,
+          "isIndexable": false,
+          "isUnique": false,
+          "description": "The time at which Atlas became aware of this topic"
+        },
+        {
+          "name": "keySchema",
+          "typeName": "avro_schema",
+          "cardinality": "SINGLE",
+          "isOptional": true,
+          "isIndexable": false,
+          "isUnique": false,
+          "description": "The Avro schema that defines the key data found in messages that are a part of this topic."
+        },
+        {
+          "name": "valueSchema",
+          "typeName": "avro_schema",
+          "cardinality": "SINGLE",
+          "isOptional": true,
+          "isIndexable": false,
+          "isUnique": false,
+          "description": "The Avro schema that defines the payload data found in messages that are a part of this topic."
+        }
+      ]
+    },
+    {
+      "name": "kafka_cluster",
+      "description": "A kafka cluster which can contain many brokers.",
+      "superTypes": [
+        "Referenceable",
+        "Asset"
+      ],
+      "typeVersion": "1.0",
+      "attributeDefs": [
+        {
+          "name": "clusterName",
+          "typeName": "string",
+          "cardinality": "SINGLE",
+          "isIndexable": true,
+          "isOptional": false,
+          "isUnique": false,
+          "description": "The name of the cluster which is used to commonly refer to it."
+        },
+        {
+          "name": "location",
+          "typeName": "string",
+          "cardinality": "SINGLE",
+          "isOptional": true,
+          "isIndexable": false,
+          "isUnique": false,
+          "description": "Describes where the cluster is located, may be a datacenter for example."
+        }
+      ]
+    }
+  ]
+}
