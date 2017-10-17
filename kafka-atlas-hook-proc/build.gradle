@@ -1,0 +1,26 @@
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+    maven {
+        url "http://packages.confluent.io/maven/"
+    }
+}
+
+dependencies {
+    compile("io.confluent:kafka-schema-registry:3.3.0") {
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    }
+    compile("io.confluent:kafka-json-serializer:3.3.0") {
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    }
+
+    compile "org.apache.kafka:kafka-streams:0.11.0.1"
+
+    compile "org.apache.atlas:atlas-notification:0.8.1"
+
+
+    runtime "ch.qos.logback:logback-classic:1.2.3"
+
+}
+
