@@ -14,6 +14,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.StringJoiner;
 
 
 public class KafkaEntityProvider {
@@ -23,6 +24,7 @@ public class KafkaEntityProvider {
     public static final String ATLAS_TYPE_KAFKA_CONNECT = "kafka_connect_process";
 
     private static final Joiner NAME_JOINER = Joiner.on('.');
+    private static final Joiner SUBJECT_JOINER = Joiner.on('-');
     private static final Splitter SUBJECT_SPLITTER = Splitter.on('-');
     //naming convention: cdc-db-<databasename>-<table>-<value/key> for connectors
 
@@ -61,9 +63,11 @@ public class KafkaEntityProvider {
         List<String> parts = SUBJECT_SPLITTER.splitToList(topicName);
 
         //TODO: determine if this is a database connector or not
+        String category = parts.get(0);
+        String source = parts.get(1);
         String database  = parts.get(2);
         String table = parts.get(3);
-        String name = parts.get(0) + "-" + parts.get(1) + "-" + database;
+        String name = SUBJECT_JOINER.join(category, source, database);
         String id = NAME_JOINER.join(clusterName, name);
 
         Referenceable db = database(database);

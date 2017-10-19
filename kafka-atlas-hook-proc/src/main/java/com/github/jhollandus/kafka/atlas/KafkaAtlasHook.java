@@ -143,7 +143,7 @@ public class KafkaAtlasHook {
         JSONArray entitiesArray = new JSONArray();
 
         for (Referenceable entity : entities) {
-            log.info("Adding entity for type: {}", entity.getTypeName());
+            log.info("Adding entity for: {}, type: {}", entity.get("name"), entity.getTypeName());
             final String entityJson = InstanceSerialization.toJson(entity, true);
             entitiesArray.put(entityJson);
         }

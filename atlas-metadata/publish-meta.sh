@@ -8,9 +8,10 @@ fi
 HOST="$1"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-stty -echo
-read -p "Password: " PASS; echo
-stty echo
+#stty -echo
+#read -p "Password: " PASS; echo
+#stty echo
+PASS=admin
 
 DEFDEL=$(mktemp)
 

@@ -1,0 +1,14 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'com.github.jhollandus.kafka.atlas.stream.DemoStream'
+
+dependencies {
+    compile project(':kafka-atlas-hook-proc')
+
+    compile("io.confluent:kafka-streams-avro-serde:3.3.0") {
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    }
+}
+
+

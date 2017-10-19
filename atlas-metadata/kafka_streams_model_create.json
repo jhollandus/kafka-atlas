@@ -16,7 +16,7 @@
           "typeName": "string",
           "cardinality": "SINGLE",
           "isIndexable": false,
-          "isOptional": false,
+          "isOptional": true,
           "isUnique": false,
           "description": "The version of the deployable artifact that defines the stream"
         },
@@ -25,7 +25,7 @@
           "typeName": "string",
           "cardinality": "SINGLE",
           "isIndexable": true,
-          "isOptional": false,
+          "isOptional": true,
           "isUnique": false,
           "description": "The name of the deployable artifact that contains the stream"
         },

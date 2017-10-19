@@ -1,1 +1,1 @@
-include ':kafka-atlas-hook-proc'
+include ':kafka-atlas-hook-proc', ':demo-stream'

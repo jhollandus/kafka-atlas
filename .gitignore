@@ -3,3 +3,4 @@
 *.iml
 reset-atlas.sh
 build
+create-stream.sh
